@@ -1,6 +1,7 @@
 'use client'
-import { HabitTrackerPage } from './components/templates'
+
+import { HabitHeroLandingPage } from './components/templates'
 
 export default function Home() {
-  return <HabitTrackerPage />
+  return <HabitHeroLandingPage />
 }
