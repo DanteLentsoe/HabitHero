@@ -3,10 +3,17 @@ import { useHabitStore } from '@/app/store'
 import { Habit } from '@/app/types'
 import { useEffect, useState } from 'react'
 import { AddHabitModal, HabitList } from '../../organisims'
-import { AchievementList, HabitProgress } from '../../molecules'
+import {
+  AchievementList,
+  AchievementsDisplay,
+  HabitProgress,
+  RankDisplay,
+} from '../../molecules'
+import { calculateAchievements, calculateRank } from '@/app/utils'
 
 export const HabitTrackerPage = () => {
-  const [habits, setHabits] = useState<Array<Habit>>([])
+  const habitsDefault = useHabitStore((state) => state.habits)
+  const [habits, setHabits] = useState<Array<Habit>>(habitsDefault || [])
   const [isOpen, setIsOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const initializeStore = useHabitStore((state) => state.initializeStore)
@@ -15,6 +22,17 @@ export const HabitTrackerPage = () => {
     initializeStore()
     setIsLoading(false)
   }, [initializeStore])
+
+  const [achievements, setAchievements] = useState(
+    calculateAchievements(habits),
+  )
+  const [rank, setRank] = useState(calculateRank(habits))
+
+  console.log('rank ', rank)
+  useEffect(() => {
+    setAchievements(calculateAchievements(habits))
+    setRank(calculateRank(habits))
+  }, [habits])
 
   if (isLoading) {
     return <div>Loading...</div>
@@ -41,6 +59,9 @@ export const HabitTrackerPage = () => {
       />
       <AchievementList />
       <HabitProgress />
+
+      <AchievementsDisplay achievements={achievements} />
+      <RankDisplay rank={rank} />
     </div>
   )
 }
