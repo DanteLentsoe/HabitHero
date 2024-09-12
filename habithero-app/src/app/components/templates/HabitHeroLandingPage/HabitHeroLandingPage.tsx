@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import Image from 'next/image'
 import { FeatureCard } from '../../molecules'
-
+import HeroSVGRunner from '../../../assets/SVG/HeroRunner.svg'
 export const HabitHeroLandingPage: FC = () => {
   const year = new Date().getFullYear()
   return (
@@ -57,7 +57,7 @@ export const HabitHeroLandingPage: FC = () => {
           <div className="md:w-1/2">
             <div className="relative h-80 w-full">
               <Image
-                src="/images/habit-tracker-illustration.png"
+                src={HeroSVGRunner}
                 alt="Person tracking habits on a device"
                 layout="fill"
                 objectFit="contain"
