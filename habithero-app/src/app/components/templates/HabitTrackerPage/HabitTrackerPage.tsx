@@ -1,3 +1,4 @@
+'use client'
 import { useHabitStore } from '@/app/store'
 import { Habit } from '@/app/types'
 import { useEffect, useState } from 'react'
