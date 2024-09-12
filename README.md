@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/26466516/141659551-d7ba5630-7200-46fe-863b-87818dae970a.png" alt="Next.js TypeScript Starter">
+<img width="1465" alt="HabitHero landing page image" src="https://github.com/user-attachments/assets/d4589ecd-49b6-4537-8ab1-8b725ea51c4c">
 </p>
 
 <br />
