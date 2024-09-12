@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     'goal setting',
     'productivity',
     'self-improvement',
+    'habit hero',
+    'tracking habits',
+    'setting goals',
+    'goals application',
+    'consistency report application',
   ],
   openGraph: {
     title: 'HabitHero - Your Personal Habit Tracking Companion',
