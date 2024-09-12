@@ -5,45 +5,12 @@ import HeroSVGRunner from '../../../assets/SVG/HeroRunner.svg'
 import CustomizableGoalsSVG from '../../../assets/SVG/TargetGoals.svg'
 import ProgressInsightsSVG from '../../../assets/SVG/ProgressInsights.svg'
 import CalendarTrackingSVG from '../../../assets/SVG/CalendarTracking.svg'
+import Link from 'next/link'
 export const HabitHeroLandingPage: FC = () => {
   const year = new Date().getFullYear()
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-100 to-green-100">
-      <header className="p-6 flex justify-between items-center">
-        <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-purple-500 rounded-full"></div>
-          <span className="text-2xl font-bold text-purple-800">HabitHero</span>
-        </div>
-        <nav>
-          <ul className="flex space-x-4">
-            <li>
-              <a
-                href="#features"
-                className="text-purple-800 hover:text-purple-600"
-              >
-                Features
-              </a>
-            </li>
-            <li>
-              <a
-                href="#about"
-                className="text-purple-800 hover:text-purple-600"
-              >
-                About
-              </a>
-            </li>
-            <li>
-              <a
-                href="#contact"
-                className="text-purple-800 hover:text-purple-600"
-              >
-                Contact
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </header>
-
       <main className="container mx-auto px-4">
         <section className="py-20 flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-10 md:mb-0">
@@ -53,9 +20,11 @@ export const HabitHeroLandingPage: FC = () => {
             <p className="text-xl text-purple-600 mb-8">
               Track your habits, build consistency, and achieve your goals.
             </p>
-            <button className="bg-purple-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-purple-600 transition duration-300">
-              Get Started
-            </button>
+            <Link href={'/pages/habithero'}>
+              <button className="bg-purple-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-purple-600 transition duration-300">
+                Get Started
+              </button>
+            </Link>
           </div>
           <div className="md:w-1/2">
             <div className="relative h-80 w-full">
