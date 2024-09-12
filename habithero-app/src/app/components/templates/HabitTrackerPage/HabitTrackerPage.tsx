@@ -2,7 +2,7 @@
 import { useHabitStore } from '@/app/store'
 import { Habit } from '@/app/types'
 import { useEffect, useState } from 'react'
-import { AddHabitModal, HabitList } from '../../organisims'
+import { AddHabitModal, HabitList, Tab } from '../../organisims'
 import {
   AchievementList,
   AchievementsDisplay,
@@ -28,7 +28,6 @@ export const HabitTrackerPage = () => {
   )
   const [rank, setRank] = useState(calculateRank(habits))
 
-  console.log('rank ', rank)
   useEffect(() => {
     setAchievements(calculateAchievements(habits))
     setRank(calculateRank(habits))
@@ -42,12 +41,23 @@ export const HabitTrackerPage = () => {
     setHabits([...habits, habit])
   }
 
+  const tabs = [
+    {
+      name: 'Habit Progress',
+      view: <HabitProgress />,
+    },
+    {
+      name: 'Achievements Display',
+      view: <AchievementsDisplay achievements={achievements} />,
+    },
+  ]
+
   return (
     <div className="max-w-4xl mx-auto mt-8 px-4">
       <h1 className="text-3xl font-bold mb-8 text-center">Habit Tracker</h1>
       <HabitList />
       <button
-        className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        className="bg-purple-500 text-white px-8 py-2 rounded-full text-lg font-semibold hover:bg-purple-600 transition duration-300 mt-4"
         onClick={() => setIsOpen(true)}
       >
         Add New Habit
@@ -58,9 +68,10 @@ export const HabitTrackerPage = () => {
         addHabit={addHabit}
       />
       <AchievementList />
-      <HabitProgress />
+      <div className="mt-12">
+        <Tab tabs={tabs} />
+      </div>
 
-      <AchievementsDisplay achievements={achievements} />
       <RankDisplay rank={rank} />
     </div>
   )
