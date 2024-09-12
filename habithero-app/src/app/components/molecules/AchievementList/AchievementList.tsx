@@ -7,9 +7,7 @@ export type AchievementListProps = {
 }
 export const AchievementList: FC<AchievementListProps> = ({ className }) => {
   const achievements = useHabitStore((state) => state.achievements)
-  if (achievements.length === 0) {
-    return null
-  }
+
   return (
     <div className={classNames('mt-8', className)}>
       <h2 className="text-2xl font-bold mb-4">Achievements</h2>
