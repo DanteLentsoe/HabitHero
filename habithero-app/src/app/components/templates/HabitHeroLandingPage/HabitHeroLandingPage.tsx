@@ -2,6 +2,9 @@ import React, { FC } from 'react'
 import Image from 'next/image'
 import { FeatureCard } from '../../molecules'
 import HeroSVGRunner from '../../../assets/SVG/HeroRunner.svg'
+import CustomizableGoalsSVG from '../../../assets/SVG/TargetGoals.svg'
+import ProgressInsightsSVG from '../../../assets/SVG/ProgressInsights.svg'
+import CalendarTrackingSVG from '../../../assets/SVG/CalendarTracking.svg'
 export const HabitHeroLandingPage: FC = () => {
   const year = new Date().getFullYear()
   return (
@@ -77,17 +80,35 @@ export const HabitHeroLandingPage: FC = () => {
             <FeatureCard
               title="Daily Tracking"
               description="Log your habits easily and build consistency"
-              icon="📊"
+              icon={
+                <Image
+                  src={CalendarTrackingSVG}
+                  className="h-48"
+                  alt="Person tracking habits on a device"
+                />
+              }
             />
             <FeatureCard
               title="Progress Insights"
               description="Visualize your growth with detailed analytics"
-              icon="📈"
+              icon={
+                <Image
+                  src={ProgressInsightsSVG}
+                  alt="Person tracking habits on a device"
+                  className="h-48"
+                />
+              }
             />
             <FeatureCard
               title="Customizable Goals"
               description="Set and achieve personalized milestones"
-              icon="🎯"
+              icon={
+                <Image
+                  src={CustomizableGoalsSVG}
+                  className="h-48"
+                  alt="Person tracking habits on a device"
+                />
+              }
             />
           </div>
         </section>
