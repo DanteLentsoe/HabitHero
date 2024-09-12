@@ -1,18 +1,14 @@
-import {
-  Achievement,
-  checkAchievements,
-  Habit,
-  updateHabit,
-} from '@/components/Habit'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
+import { Achievement, Habit } from '../types'
+import { checkAchievements, updateHabit } from '../utils'
 
-interface HabitStore {
-  habits: Habit[]
-  achievements: Achievement[]
+export type HabitStore = {
+  habits: Array<Habit>
+  achievements: Array<Achievement>
   addHabit: (habit: Habit) => void
   completeHabit: (habitId: string) => void
-  getAchievements: () => Achievement[]
+  getAchievements: () => Array<Achievement>
   initializeStore: () => void
 }
 
