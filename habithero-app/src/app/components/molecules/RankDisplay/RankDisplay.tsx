@@ -6,7 +6,7 @@ export type RankDisplayProps = {
 }
 
 export const RankDisplay: FC<RankDisplayProps> = ({ rank }) => (
-  <div className="mt-8 bg-purple-100 p-4 rounded-lg">
+  <div className="mt-8 bg-purple-100 p-4 rounded-lg mb-8">
     <h2 className="text-2xl font-bold text-purple-800 mb-2">Current Rank</h2>
     <div className="flex items-center">
       <span className="text-4xl mr-4">{rank.icon}</span>
