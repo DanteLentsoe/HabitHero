@@ -3,11 +3,14 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
+import { smoothScroll } from '@/app/utils/smoothScroll'
+import { usePathname } from 'next/navigation'
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
   const navRef = useRef<HTMLDivElement>(null)
+  const pathname = usePathname()
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -40,24 +43,29 @@ export const Navigation = () => {
 
   const NavLinks = () => (
     <>
-      <a
-        href="#features"
-        className="block py-2 text-purple-800 hover:text-purple-600 transition-colors duration-200"
-      >
-        Features
-      </a>
-      <a
-        href="#about"
-        className="block py-2 text-purple-800 hover:text-purple-600 transition-colors duration-200"
-      >
-        About
-      </a>
-      <a
-        href="#contact"
-        className="block py-2 text-purple-800 hover:text-purple-600 transition-colors duration-200"
-      >
-        Contact
-      </a>
+      {pathname === '/' && (
+        <>
+          <span
+            onClick={() => smoothScroll('#features')}
+            className="block py-2 text-purple-800 hover:text-purple-600 transition-colors duration-200 cursor-pointer"
+          >
+            Features
+          </span>
+
+          <span
+            onClick={() => smoothScroll('#about')}
+            className="block py-2 text-purple-800 hover:text-purple-600 transition-colors duration-200 cursor-pointer"
+          >
+            About
+          </span>
+          <span
+            onClick={() => smoothScroll('#contact')}
+            className="block py-2 text-purple-800 hover:text-purple-600 transition-colors duration-200 cursor-pointer"
+          >
+            Contact
+          </span>
+        </>
+      )}
     </>
   )
 
@@ -82,7 +90,11 @@ export const Navigation = () => {
               onClick={toggleMenu}
               className="text-purple-800 focus:outline-none transition-transform duration-200 ease-in-out transform hover:scale-110"
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              <>
+                {pathname === '/' && (
+                  <>{isOpen ? <X size={24} /> : <Menu size={24} />}</>
+                )}
+              </>
             </button>
           ) : (
             <div className="hidden md:flex space-x-4">
