@@ -68,11 +68,10 @@ export const HabitTrackerPage = () => {
         addHabit={addHabit}
       />
       <AchievementList />
+      <RankDisplay rank={rank} />
       <div className="mt-12">
         <Tab tabs={tabs} />
       </div>
-
-      <RankDisplay rank={rank} />
     </div>
   )
 }

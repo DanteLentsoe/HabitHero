@@ -1,3 +1,4 @@
+'use client'
 import React, { FC } from 'react'
 import Image from 'next/image'
 import { FeatureCard } from '../../molecules'
@@ -6,9 +7,8 @@ import CustomizableGoalsSVG from '../../../assets/SVG/TargetGoals.svg'
 import ProgressInsightsSVG from '../../../assets/SVG/ProgressInsights.svg'
 import CalendarTrackingSVG from '../../../assets/SVG/CalendarTracking.svg'
 import Link from 'next/link'
+import { Footer } from '../../organisims'
 export const HabitHeroLandingPage: FC = () => {
-  const year = new Date().getFullYear()
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-100 to-green-100">
       <main className="container mx-auto px-4">
@@ -107,19 +107,7 @@ export const HabitHeroLandingPage: FC = () => {
         </section>
       </main>
 
-      <footer className="bg-white text-slate-900 py-8">
-        <div className="container mx-auto px-4 flex justify-between items-center">
-          <span>&copy; {year} HabitHero. All rights reserved.</span>
-          <div className="flex space-x-4">
-            <a href="#" className="hover:text-purple-300">
-              Privacy Policy
-            </a>
-            <a href="#" className="hover:text-purple-300">
-              Terms of Service
-            </a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }
