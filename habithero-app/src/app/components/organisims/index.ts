@@ -1,3 +1,6 @@
 export * from './HabitList'
 export * from './Modals'
 export * from './Tab'
+export * from './Contact'
+export * from './About'
+export * from './Footer'
